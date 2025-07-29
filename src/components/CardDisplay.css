@@ -1,0 +1,61 @@
+.card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    box-sizing: border-box;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  
+    /* 🚧 Penting: batasi konten agar tidak keluar */
+    overflow: hidden;
+    word-wrap: break-word;
+  }
+  
+  .icon {
+    font-size: 36px;
+    color: #007bff;
+    margin-bottom: 8px;
+    flex-shrink: 0;
+  }
+  
+  .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #222;
+  
+    /* 💡 Bungkus kata panjang */
+    word-break: break-word;
+    overflow-wrap: break-word;
+  
+    /* Tambahan pelindung */
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .unit {
+    font-size: 16px;
+    color: #666;
+    margin-left: 4px;
+  }
+  
+  .label {
+    font-size: 16px;
+    color: #444;
+    margin-top: 4px;
+  
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  

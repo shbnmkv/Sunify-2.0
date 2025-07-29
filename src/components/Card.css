@@ -1,0 +1,35 @@
+.card {
+    background: white;
+    padding: 16px;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.2s ease;
+    flex: 1 1 100%;
+    box-sizing: border-box;
+  }
+  
+  .card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .card h3 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b7280;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .card p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #111827;
+    margin: 8px 0 0;
+  }
+  .card svg {
+    color: #3b82f6;
+  }
+  

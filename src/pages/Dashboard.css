@@ -1,0 +1,57 @@
+.dashboard-section {
+  padding: 16px;
+  padding-bottom: 80px;
+  max-width: 600px;
+  margin: auto;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #f9fbfe, #ffffff);
+  transition: background 0.4s ease;
+}
+
+.row {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.two-columns {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.one-column {
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+.dashboard-section h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.7rem;
+  color: #222;
+  transition: color 0.3s ease;
+}
+
+/* Gaya dasar greeting-card, sisanya diatur dinamis dari inline style */
+.greeting-card {
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.greeting-card h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.greeting-card p {
+  margin: 4px 0 0;
+  font-size: 1rem;
+  opacity: 0.8;
+}
