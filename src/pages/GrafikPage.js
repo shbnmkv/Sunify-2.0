@@ -49,7 +49,7 @@ function GrafikPage() {
     };
 
     fetchHistory();
-    const interval = setInterval(fetchHistory, 10000);
+    const interval = setInterval(fetchHistory, 5000);
     return () => clearInterval(interval);
   }, [range]);
 

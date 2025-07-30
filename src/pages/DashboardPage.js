@@ -52,7 +52,7 @@ function DashboardPage() {
 
   useEffect(() => {
     fetchLatest();
-    const interval = setInterval(fetchLatest, 1000);
+    const interval = setInterval(fetchLatest, 5000);
     return () => clearInterval(interval);
   }, []);
 

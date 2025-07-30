@@ -11,7 +11,7 @@ MQTT_TOPIC = "solar/data"
 # Nilai awal
 current_data = {
     "voltage": 12.4,
-    "current": 585,
+    "current": 5000,
     "power": 173,
     "suhu": 34,
     "kelembapan": 65,
@@ -29,12 +29,14 @@ def smooth_change(value, min_delta, max_delta, min_value=None, max_value=None):
     if max_value is not None:
         new_value = min(max_value, new_value)
     return round(new_value, 2 if isinstance(value, float) else 0)
-
 def generate_next_data():
     global current_data
-    current_data["voltage"] = smooth_change(current_data["voltage"], 0.01, 0.05, 11.8, 13.0)
-    current_data["current"] = smooth_change(current_data["current"], 1, 5, 500, 600)
-    current_data["power"] = smooth_change(current_data["power"], 1, 3, 100, 200)
+    current_data["voltage"] = smooth_change(current_data["voltage"], 0.01, 0.05, 11.5, 12.6)
+    current_data["current"] = smooth_change(current_data["current"], 1, 5, 5000, 6000)
+    
+    # Hitung power dari voltage * current (dibagi 1000 jika ingin dalam watt dari mA)
+    current_data["power"] = round((current_data["voltage"] * current_data["current"]) / 1000, 2)
+
     current_data["suhu"] = smooth_change(current_data["suhu"], 0.2, 1, 25, 45)
     current_data["kelembapan"] = smooth_change(current_data["kelembapan"], 0.5, 1.5, 40, 90)
     current_data["battery_capacity"] = smooth_change(current_data["battery_capacity"], 0.5, 2, 50, 100)
@@ -52,7 +54,7 @@ try:
         payload = json.dumps(data)
         client.publish(MQTT_TOPIC, payload)
         print(f"Published to {MQTT_TOPIC}: {payload}")
-        time.sleep(1)
+        time.sleep(5)
 
 except KeyboardInterrupt:
     print("Stopped by user.")
