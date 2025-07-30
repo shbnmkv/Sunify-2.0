@@ -105,10 +105,12 @@
 
 .setting-page .toast.success {
   background-color: #16a34a;
+  margin-bottom: 20px;
 }
 
 .setting-page .toast.error {
   background-color: #dc2626;
+  margin-bottom: 20px;
 }
 
 /* Bagian Tentang Aplikasi */
