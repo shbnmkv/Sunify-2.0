@@ -108,10 +108,10 @@ function SettingPage() {
         </div>
     
         <div className="about-section">
-          <h3>Tentang Aplikasi</h3>
-          <p>Aplikasi monitoring panel surya ini dikembangkan oleh <strong>i-click tech</strong>.</p>
+          <h3>SuniFy 2.0</h3>
+          <p>Aplikasi monitoring panel surya ini dikembangkan oleh <strong>i-Click Tech </strong> dibantu oleh <strong>ChatGPT</strong>.</p>
           <p>Kode sumber tersedia di GitHub: <a href="https://github.com/shbnmkv" target="_blank" rel="noopener noreferrer">shbnmkv</a></p>
-          <p>Versi: 1.0.0</p>
+          <p>Versi: 2.0.0</p>
           <p>Teknologi: ReactJS, Flask, MongoDB, MQTT</p>
           <p>Status: Beta</p>
           <p>Lisensi: MIT</p>

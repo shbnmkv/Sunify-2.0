@@ -3,7 +3,7 @@
   max-width: 100%;
   margin: 0 auto;
   padding: 1rem;
-  padding-bottom: 790px; /* biar ga ketutup bottom nav */
+  padding-bottom: 90px; /* biar ga ketutup bottom nav */
   font-family: 'Poppins', sans-serif;
   color: #333;
   line-height: 1.2;
@@ -125,5 +125,5 @@
 
 
 .bottom-spacer {
-  height: 120px; /* atur sesuai tinggi navbar kamu */
+  height: 80px; /* atur sesuai tinggi navbar kamu */
 }
