@@ -17,7 +17,7 @@ import { loadMQTTConfig } from '../config/mqttConfig';
 
 const { backendUrl } = loadMQTTConfig();
 
-// Cek apakah sekarang siang (05:00–17:59)
+// Cek apakah sekarang siang (05:00–17:59).
 const isDaytimeNow = () => {
   const hour = new Date().getHours();
   return hour >= 5 && hour < 18;
@@ -28,7 +28,7 @@ function DashboardPage() {
   const [greeting, setGreeting] = useState('');
   const [currentTime, setCurrentTime] = useState(new Date());
 
-  const userName = 'i-Click Tech';
+  const userName = 'Bani';
 
   useEffect(() => {
     const now = new Date();
