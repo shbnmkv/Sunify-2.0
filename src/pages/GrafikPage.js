@@ -17,34 +17,57 @@ function GrafikPage() {
   const [historyData, setHistoryData] = useState([]);
 
   const downsample = (data, interval = 1) => {
-    return data.filter((_, index) => index % interval === 0);
+    return Array.isArray(data) ? data.filter((_, index) => index % interval === 0) : [];
   };
 
   const DOWNSAMPLE_INTERVAL = {
     '1m': 1,
     '15m': 2,
-    '1h': 3,
-    '6h': 5,
-    '12h': 8,
-    '24h': 12,
+    '1h': 4,
+    '24h': 6,
     '7d': 20,
-    '30d': 40,
+  };
+
+  const rangeToMs = (range) => {
+    const map = {
+      '15m': 15 * 60 * 1000,
+      '1h': 60 * 60 * 1000,
+      '24h': 24 * 60 * 60 * 1000,
+      '7d': 7 * 24 * 60 * 60 * 1000,
+    };
+    return map[range] || 15 * 60 * 1000;
   };
 
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        const res = await fetch(`${backendUrl}/api/history?range=${range}`);
-        const json = await res.json();
-        setHistoryData(json);
+        if (range === '1m') {
+          // Realtime
+          const res = await fetch(`${backendUrl}/api/history?range=1m`);
+          const json = await res.json();
+          setHistoryData(json);
+        } else {
+          // Snapshot
+          const now = new Date();
+          const end = now.toISOString();
+          const start = new Date(now - rangeToMs(range)).toISOString();
+          const res = await fetch(`${backendUrl}/api/history_range?start=${start}&end=${end}`);
+          const json = await res.json();
+          setHistoryData(json);
+        }
       } catch (err) {
-        console.error('Gagal fetch /api/history:', err);
+        console.error('Gagal fetch history:', err);
+        setHistoryData([]);
       }
     };
 
     fetchHistory();
-    const interval = setInterval(fetchHistory, 5000
-    );
+
+    let interval;
+    if (range === '1m') {
+      interval = setInterval(fetchHistory, 5000);
+    }
+
     return () => clearInterval(interval);
   }, [range]);
 
@@ -67,7 +90,7 @@ function GrafikPage() {
           const isActive = range === option.value;
           return (
             <button
-              key={option.value + (isActive ? '-active' : '')}
+              key={option.value}
               className={`time-pill ${isActive ? 'active' : ''}`}
               onClick={() => setRange(option.value)}
             >
@@ -81,11 +104,11 @@ function GrafikPage() {
       <div className="chart-container">
         <div className="chart-card">
           <h4>Grafik Tegangan</h4>
-          <VoltageChart data={sampledData} />
+          <VoltageChart data={sampledData} range={range} />
         </div>
         <div className="chart-card">
           <h4>Grafik Arus</h4>
-          <CurrentChart data={sampledData} />
+          <CurrentChart data={sampledData} range={range} />
         </div>
       </div>
 

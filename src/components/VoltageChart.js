@@ -4,7 +4,7 @@ import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
 import 'chartjs-adapter-date-fns';
 
-function VoltageChart({ data }) {
+function VoltageChart({ data, range }) {
   const chartData = {
     labels: data.map(d => new Date(d.timestamp)),
     datasets: [
@@ -20,12 +20,36 @@ function VoltageChart({ data }) {
     ],
   };
 
+  // Tentukan unit dan format berdasarkan rentang
+  let timeUnit = 'minute';
+  let displayFormat = 'HH:mm';
+  let tooltipFormat = 'dd MMM yyyy HH:mm';
+
+  switch (range) {
+    case '1m':
+      timeUnit = 'minute';
+      displayFormat = 'HH:mm';
+      break;
+    case '15m':
+    case '1h':
+    case '24h':
+      timeUnit = 'hour';
+      displayFormat = 'HH:mm';
+      break;
+    case '7d':
+      timeUnit = 'day';
+      displayFormat = 'dd MMM';
+      break;
+    default:
+      timeUnit = 'minute';
+  }
+
   const options = {
     responsive: true,
     maintainAspectRatio: false,
-    aspectRatio: 2, // Grafik tidak terlalu tinggi
+    aspectRatio: 2,
     layout: {
-      padding: 10, // Tambah ruang
+      padding: 10,
     },
     plugins: {
       legend: {
@@ -38,19 +62,27 @@ function VoltageChart({ data }) {
       tooltip: {
         mode: 'index',
         intersect: false,
+        callbacks: {
+          label: function (context) {
+            const date = new Date(context.parsed.x);
+            const voltage = context.parsed.y;
+            return `${date.toLocaleString('id-ID')} - ${voltage} V`;
+          },
+        },
       },
     },
     scales: {
       x: {
         type: 'time',
         time: {
-          unit: 'hour',
+          unit: timeUnit,
           displayFormats: {
-            hour: 'HH:mm',
+            [timeUnit]: displayFormat,
           },
+          tooltipFormat,
         },
         ticks: {
-          maxTicksLimit: 6,
+          maxRotation: 45,
           font: { size: 10 },
         },
         title: {
@@ -62,7 +94,7 @@ function VoltageChart({ data }) {
       y: {
         beginAtZero: false,
         min: 10.5,
-        max: 12.6,
+        max: 12.7,
         ticks: {
           font: { size: 10 },
         },

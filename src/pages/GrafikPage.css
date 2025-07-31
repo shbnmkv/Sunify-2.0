@@ -126,3 +126,10 @@
 .bottom-spacer {
   height: 80px;
 }
+
+
+.time-pill.freeze {
+  background-color: #facc15;
+  color: #000;
+  font-weight: 600;
+}
