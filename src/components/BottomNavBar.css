@@ -23,7 +23,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2px 0; /* menambah ruang di dalam tiap item */
+  justify-content: center;
+  padding: 2px 0;
+  flex: 1; /* Ini membuat setiap link mengambil lebar yang sama */
 }
 
 .bottom-nav a.active {

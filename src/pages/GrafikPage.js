@@ -43,7 +43,8 @@ function GrafikPage() {
     };
 
     fetchHistory();
-    const interval = setInterval(fetchHistory, 5000);
+    const interval = setInterval(fetchHistory, 5000
+    );
     return () => clearInterval(interval);
   }, [range]);
 
@@ -52,25 +53,28 @@ function GrafikPage() {
 
   return (
     <div className="grafik-page">
-      <h2>Dashboard Panel Surya</h2>
+      <h2>Grafik Tegangan & Arus</h2>
 
       {/* Switch filter waktu */}
       <div className="time-switch">
         {[
-          { label: '1m', value: '1m' },
-          { label: '15m', value: '15m' },
-          { label: '1h', value: '1h' },
-          { label: '24h', value: '24h' },
-          { label: '1w', value: '7d' }
-        ].map((option) => (
-          <button
-            key={option.value}
-            className={`time-pill ${range === option.value ? 'active' : ''}`}
-            onClick={() => setRange(option.value)}
-          >
-            {option.label}
-          </button>
-        ))}
+          { label: '1M', value: '1m' },
+          { label: '15M', value: '15m' },
+          { label: '1H', value: '1h' },
+          { label: '24H', value: '24h' },
+          { label: '1W', value: '7d' }
+        ].map((option) => {
+          const isActive = range === option.value;
+          return (
+            <button
+              key={option.value + (isActive ? '-active' : '')}
+              className={`time-pill ${isActive ? 'active' : ''}`}
+              onClick={() => setRange(option.value)}
+            >
+              {option.label}
+            </button>
+          );
+        })}
       </div>
 
       {/* Grafik */}
@@ -84,8 +88,8 @@ function GrafikPage() {
           <CurrentChart data={sampledData} />
         </div>
       </div>
-      <div className="bottom-spacer" />
 
+      <div className="bottom-spacer" />
     </div>
   );
 }

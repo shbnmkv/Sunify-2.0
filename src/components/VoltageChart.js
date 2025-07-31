@@ -61,6 +61,8 @@ function VoltageChart({ data }) {
       },
       y: {
         beginAtZero: false,
+        min: 10.5,
+        max: 12.6,
         ticks: {
           font: { size: 10 },
         },

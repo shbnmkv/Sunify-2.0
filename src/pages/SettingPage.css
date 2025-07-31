@@ -9,7 +9,7 @@
 .setting-page h2 {
   text-align: center;
   margin-bottom: 1.5rem;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   color: #222;
   font-family: 'Poppins', sans-serif;
 }
@@ -89,7 +89,7 @@
 }
 
 .setting-page .btn-test:hover {
-  background-color: #4338ca;
+  background-color: #353194;
 }
 
 /* Notifikasi */
@@ -139,4 +139,24 @@
 
 .setting-page .about-section a:hover {
   text-decoration: underline;
+}
+
+
+/* Spinner loading di tombol */
+.setting-page .spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid white;
+  border-top-color: transparent;
+  border-radius: 50%;
+  margin-right: 8px;
+  display: inline-block;
+  vertical-align: middle;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
