@@ -28,7 +28,7 @@ function DashboardPage() {
   const [greeting, setGreeting] = useState('');
   const [currentTime, setCurrentTime] = useState(new Date());
 
-  const userName = 'Bani';
+  const userName = 'I-Click';
 
   useEffect(() => {
     const now = new Date();
