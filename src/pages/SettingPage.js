@@ -128,14 +128,17 @@ function SettingPage() {
       </div>
 
       <div className="about-section">
-        <h3>SuniFy 2.0</h3>
-        <p>Aplikasi monitoring panel surya ini dikembangkan oleh <strong>i-Click Tech</strong> dibantu oleh <strong>ChatGPT</strong>.</p>
-        <p>Kode sumber tersedia di GitHub: <a href="https://github.com/shbnmkv" target="_blank" rel="noopener noreferrer">shbnmkv</a></p>
-        <p>Versi: 2.0.0</p>
-        <p>Teknologi: ReactJS, Flask, MongoDB, MQTT</p>
-        <p>Status: Beta</p>
-        <p>Sawang sinawang</p>
-      </div>
+  <h3>SuniFy 2.0 ☀️</h3>
+  <p>Dibuat oleh <strong>i-Click Tech</strong>, dibantu <strong>ChatGPT</strong> </p>
+  <p>🔗 Source code: <a href="https://github.com/shbnmkv" target="_blank" rel="noopener noreferrer">shbnmkv @ GitHub</a></p>
+  <p>🛠️ Versi: 2.0.1 — sing penting jalan sit.</p>
+  <p>💻 ReactJS, Flask, MongoDB, MQTT.</p>
+  <p>
+    <strong>BUG = FITUR !</strong></p>
+</div>
+
+
+
     </div>
   );
 }
