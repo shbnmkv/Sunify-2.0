@@ -4,13 +4,13 @@
   left: 0;
   right: 0;
   width: 100%;
-  height: 70px; /* menambah tinggi navbar */
+  height: 70px; 
   background-color: #ffffff;
   border-top: 1px solid #ccc;
   display: flex;
   justify-content: space-around;
-  align-items: center; /* membuat isi navbar rata tengah vertikal */
-  padding: 0; /* padding nol agar tinggi konsisten dengan height */
+  align-items: center; 
+  padding: 0; 
   box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1);
   z-index: 100;
   margin: 0;
@@ -25,7 +25,7 @@
   align-items: center;
   justify-content: center;
   padding: 2px 0;
-  flex: 1; /* Ini membuat setiap link mengambil lebar yang sama */
+  flex: 1; 
 }
 
 .bottom-nav a.active {

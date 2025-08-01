@@ -11,7 +11,7 @@ function CurrentChart({ data }) {
       {
         label: 'Arus (mA)',
         data: data.map(d => d.current),
-        borderColor: '#10b981', // Warna hijau
+        borderColor: '#10b981', 
         backgroundColor: 'rgba(16,185,129,0.15)',
         tension: 0.3,
         pointRadius: 2,
@@ -23,7 +23,7 @@ function CurrentChart({ data }) {
   const options = {
     responsive: true,
     maintainAspectRatio: false,
-    aspectRatio: 2, // Sama seperti VoltageChart
+    aspectRatio: 2, 
     layout: {
       padding: 10,
     },

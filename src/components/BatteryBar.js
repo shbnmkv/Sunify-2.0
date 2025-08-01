@@ -5,9 +5,9 @@ import './BatteryBar.css';
 
 const BatteryBar = ({ percentage }) => {
   const getColor = () => {
-    if (percentage >= 80) return '#4caf50'; // hijau
-    if (percentage >= 50) return '#ff9800'; // oranye
-    return '#f44336'; // merah
+    if (percentage >= 80) return '#4caf50'; 
+    if (percentage >= 50) return '#ff9800'; 
+    return '#f44336'; 
   };
 
   return (

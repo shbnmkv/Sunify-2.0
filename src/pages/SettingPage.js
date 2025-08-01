@@ -132,7 +132,7 @@ function SettingPage() {
   <p>Dibuat oleh <strong>i-Click Tech</strong>, dibantu <strong>ChatGPT</strong> </p>
   <p>🔗 Source code: <a href="https://github.com/shbnmkv" target="_blank" rel="noopener noreferrer">shbnmkv @ GitHub</a></p>
   <p>🛠️ Versi: 2.0.1 — sing penting jalan sit.</p>
-  <p>💻 ReactJS, Flask, MongoDB, MQTT.</p>
+  <p>💻 ReactJS, Flask, Rest API, MongoDB, MQTT.</p>
   <p>
     <strong>BUG = FITUR !</strong></p>
 </div>
