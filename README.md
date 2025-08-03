@@ -19,6 +19,8 @@
 **Dashboard Utama**
 <p align="center">
   <img src="screenshoots/dashboard.png" alt="Tampilan Dashboard Sunify 2.0" width="20%">
+  <img src="screenshoots/grafikpage.png" alt="Tampilan Dashboard Sunify 2.0" width="20%">
+  <img src="screenshoots/setting.png" alt="Tampilan Dashboard Sunify 2.0" width="20%">
 </p>
 
 ## 🚀 Key Features
