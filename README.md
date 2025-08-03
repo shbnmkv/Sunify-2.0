@@ -16,11 +16,12 @@
 6. There's a backend connection test feature from the UI
 
 ---
-**Dashboard Utama**
+
+**Tampilan Aplikasi**
 <p align="center">
-  <img src="screenshoots/dashboard.png" alt="Tampilan Dashboard Sunify 2.0" width="20%">
-  <img src="screenshoots/grafikpage.png" alt="Tampilan Dashboard Sunify 2.0" width="20%">
-  <img src="screenshoots/setting.png" alt="Tampilan Dashboard Sunify 2.0" width="20%">
+  <img src="screenshots/dashboard.png" alt="Tampilan Dashboard Utama" width="30%">
+  <img src="screenshots/grafikpage.png" alt="Tampilan Halaman Grafik" width="30%">
+  <img src="screenshots/setting.png" alt="Tampilan Halaman Pengaturan" width="30%">
 </p>
 
 ## 🚀 Key Features
