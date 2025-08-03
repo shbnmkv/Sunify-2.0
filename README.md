@@ -16,7 +16,10 @@
 6. There's a backend connection test feature from the UI
 
 ---
-
+**Dashboard Utama**
+<p align="center">
+  <img src="screenshots/dashboard.png" alt="Tampilan Dashboard Sunify 2.0" width="80%">
+</p>
 ## 🚀 Key Features
 
 - 📡 MQTT integration in the backend: receive live data from IoT devices
