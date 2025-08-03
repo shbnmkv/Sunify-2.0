@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+# Sunify 2.0 ☀️
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Sunify 2.0** is a web-based solar panel monitoring application. It connects IoT devices (such as microcontrollers/ESP32) to a server using the MQTT protocol, stores sensor data into a MongoDB database, and displays the data as intuitive charts via a ReactJS interface.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📋 What This App Does
 
-### `npm start`
+1. **IoT devices** send voltage and current data to the MQTT topic `solar/data`
+2. The **Flask server** listens to that topic using the `paho-mqtt` library
+3. The data is automatically saved to **MongoDB**
+4. The **React frontend** displays the data in:
+   - **Real-time**
+   - **Historical mode** (from 1 minute to 30 days back) using REST API
+5. A REST API is provided for flexible data access
+6. There's a backend connection test feature from the UI
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Key Features
 
-### `npm test`
+- 📡 MQTT integration in the backend: receive live data from IoT devices
+- 🧠 Automatic storage into MongoDB
+- 📈 Interactive charts for voltage and current
+- ⏱ Real-time and historical viewing modes (1m, 15m, 1h, 6h, etc.)
+- 🛠 Backend connection test from the frontend interface
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🧰 Technologies Used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Layer      | Technology                        |
+|------------|-----------------------------------|
+| Frontend   | ReactJS, Recharts, Chart.js       |
+| Backend    | Flask, Flask-CORS                 |
+| Database   | MongoDB                           |
+| Messaging  | MQTT (`paho-mqtt` for Python)     |
+| Timezone   | Auto-conversion to Asia/Jakarta   |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📦 How to Run This Project
 
-### `npm run eject`
+### 1. Clone the Repository
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+git clone https://github.com/shbnmkv/Sunify-2.0.git
+cd Sunify-2.0
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 2. Start the Backend (Flask API) 
+#### Make sure !!!:
+- Python is Installed
+- MongoDB is running at `mongodb://localhost:27017`
+- MQTT broker is active (e.g., Mosquitto on `localhost:1883`)
+- MQTT topic: `solar/data`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+pip install -r requirements.txt #install requirements for backend
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Start the server:
+```bash
+python app.py
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Backend will run at: `http://YOUR_VPS_IP:5000`
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 3. Start the Frontend (React)
 
-### Analyzing the Bundle Size
+```bash
+cd frontend
+npm install
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Frontend will run at: `http://YOUR_VPS_IP:3000`
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🔌 REST API Endpoints
 
-### Advanced Configuration
+| Endpoint                                | Method | Description                                 |
+|-----------------------------------------|--------|---------------------------------------------|
+| `/api/latest`                           | GET    | Fetch the latest sensor data                |
+| `/api/history?range=15m`                | GET    | Fetch historical data based on preset time  |
+| `/api/history_range?start=...&end=...`  | GET    | Fetch data between a specific time range    |
+| `/api/ping`                             | GET    | Check if the backend is alive               |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## 📂 Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
+Sunify-2.0/
+├── app.py                # Main backend (Flask + MQTT + MongoDB)
+├── requirements.txt      # Python dependencies
+├── frontend/             # React frontend
+└── README.md             # Project documentation
 
-### `npm run build` fails to minify
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+
+##  🔧 Usage
+To connect the front end with the back end, go to the Settings page on the web app.
+Then, enter the IP address of the VPS running the backend along with the port it uses.
+
+You can test the connection using the Test Connection feature provided in the interface.
