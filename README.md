@@ -5,7 +5,7 @@
   <img src="screenshots/setting.png" alt="Tampilan Halaman Pengaturan" width="30%">
 </p>
 
-**Sunify 2.0** is a web-based solar panel monitoring application. It connects IoT devices (such as microcontrollers/ESP32) to a server using the MQTT protocol, stores sensor data into a MongoDB database, and displays the data as intuitive charts via a ReactJS interface.
+Sunify 2.0 is a web-based solar panel monitoring application. It connects IoT devices (such as microcontrollers/ESP32) to a server using the MQTT protocol, stores sensor data into a MongoDB database, and displays the data as intuitive charts via a ReactJS interface.
 
 ---
 
@@ -25,7 +25,7 @@
 
 
 
-## 🚀 Key Features
+## Features
 
 - 📡 MQTT integration in the backend: receive live data from IoT devices
 - 🧠 Automatic storage into MongoDB
